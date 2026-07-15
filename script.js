@@ -13,11 +13,9 @@ postInput.addEventListener("input", function () {
   charCount.textContent = `${length} / ${max}`;
 
   // visual color change when char is less than 20
-  if (remaining <= 20) {
-    charCount.style.color = "red";
-  } else {
-    charCount.style.color = "#666";
-  }
+  charCount.classList.remove("warning", "danger");
+  if (remaining <= 0) charCount.classList.add("danger");
+  else if (remaining <= 20) charCount.classList.add("warning");
 
   // toggle button accesibility
   if (length === 0 || remaining < 0) {
